@@ -14,8 +14,9 @@ class ListFragment < MarkdownFragment
       data << [bullet,item]
     end
     data.each do |row|
-      pdf.move_down 5
-      pdf.draw_text "#{row[0]}#{row[1]}", at: [10, pdf.cursor]
+      pdf.indent(10) do
+        pdf.text "#{row[0]}#{row[1]}"
+      end
     end
   end
 
